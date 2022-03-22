@@ -10,8 +10,9 @@ def start():
     age = request.values.get("age")
     profession = request.values.get("profession")
     review = request.values.get("review")
+    movies = request.form.get("movies")
 
-    print (name, gender, age, profession, review)
+    print (name, gender, age, profession, review, movies)
 
     return render_template('index.html')
 
@@ -27,3 +28,9 @@ def ping():
 if __name__== "__main__":
     app.run(host="0.0.0.0", debug = True, port = 5003)
 
+'''
+
+choose a movie
+
+
+'''
