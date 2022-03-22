@@ -485,7 +485,7 @@
     <!-- WAVES -->
     <div class="header">
         <div class="inner-header flex">
-            <h1><b>Upload your project</b></h1>
+            <h1><b>MoviePysch Reviews</b></h1>
         </div>
 
         <!--Waves Container-->
@@ -514,47 +514,37 @@
     <form action="/project" method="POST" enctype="multipart/form-data" class="my-form">
         <div class="container">
             <ul>
+                <li>
+                    <select>
+                      <option selected disabled>Choose a Scene</option>
+                      <option>Request Quote</option>
+                      <option>Send Resume</option>
+                      <option>Other</option>      
+                    </select>
+                  </li>
 
                 <li>
                     <div class="grid grid-2">
-                        <!-- <label for="project_name"></label> -->
-                        <!-- <input type="text" placeholder="Name" required> -->
+                
                         <input type="text" placeholder="Enter Project Name" name="project_name" required label for="project_name">
-                        <!-- <label for="project_name"></label> -->
 
                         <input type="text" placeholder="Email" name='email' label for="email" required>
-                        <!-- <label for="resource_link"></label> -->
+           
 
                         <input type="url" placeholder="Enter Resource Link" name="resource_link" label for="resource_link">
-                        <!-- <label for="resource_link"></label> -->
 
-                        <!-- <label for="github_link"></label> -->
                         <input type="url" placeholder="Enter GitHub Link" name="github_link" label for="github_link">
 
                     </div>
                 </li>
-                <li>
-                    <!-- <div class="grid grid-2">
-                        <label for="resource_link"></label>
-                        <input type="url" placeholder="Enter Resource Link" name="resource_link">
-                        <label for="github_link"></label>
-                        <input type="url" placeholder="Enter GitHub Link" name="github_link">
-                    </div> -->
-                </li>
+             
 
                 <li>
                     <label for="project_description"></label>
 
-                    <textarea name="project_description" placeholder="Project description:"></textarea>
+                    <textarea name="project_description" placeholder="Review:"></textarea>
                 </li>
-                <li>
-                    <input type="file" name="file">
-                    <!-- <input type="submit" value="Submit" /> -->
-                </li>
-                <li>
-                    <a href={{service_url}}>
-                    {{service_url}} 
-                </a></li>
+
                 <li>
                     <input type="checkbox" id="terms">
                     <label for="terms">I have read and agreed with the terms and conditions</label>
@@ -562,75 +552,13 @@
                 <li>
                     <input type="submit" value="Submit" style="width:150px; margin-left: 310px;margin-right: 30px" />
                 </li>
-                <!-- <li>
-                    <div class="grid grid-3">
-                        <div class="required-msg">Required fields</div>
-                        <button class="btn-grid" type="submit" disabled>
-                            <span class="back">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg" alt="">
-                            </span>
-                            <span class="front">Submit</span>
-                        </button>
-                        <button class="btn-grid" type="reset" disabled>
-                            <span class="back">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg" alt="">
-                            </span>
-                            <span class="front">Reset</span>
-                        </button>
-                    </div>
-
-                </li> -->
+    
             </ul>
         </div>
     </form>
 
 
-    <!-- UPLOADER -->
-    <!-- 
-    <div class="container">
-        <div class="card">
-            <h3>Upload Files</h3>
-            <div class="drop_box">
-                <header>
-                    <h4>Select File here</h4>
-                </header>
-                <label for="project_file"><b>Project File</b></label>
-
-                <input type="file" name="files[]" multiple="true" autocomplete="off" required id="fileID" style="display:none;">
-                <button class="btn">Choose File</button>
-            </div>
-
-        </div>
-        <br>
-        <br>
-        <input type="submit" value="Submit" />
-
-    </div> -->
-
     <script>
-        // UPLOADER
-
-        const dropArea = document.querySelector(".drop_box"),
-            button = dropArea.querySelector("button"),
-            dragText = dropArea.querySelector("header"),
-            input = dropArea.querySelector("input");
-        let file;
-        var filename;
-
-        button.onclick = () => {
-            input.click();
-        };
-
-        input.addEventListener("change", function(e) {
-            var fileName = e.target.files[0].name;
-            let filedata = `
-    <form action="" method="post">
-    <div class="form">
-    <h4>${fileName}</h4>
-    </div>
-    </form>`;
-            dropArea.innerHTML = filedata;
-        });
 
 
         // FORM
