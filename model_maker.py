@@ -103,6 +103,8 @@ class MLSingleton:
 def startpy():
     
     s = MLSingleton.getInstance()
+    # train the model
+    # s.train_model(force=True)
     # ex = ["Rape is a serious crime and people have to take a careful note on it", "Movie contains lots of gore scenes.", "He need justice because it is completely unfair to him", "Movie contains lots of gore scenes. I particularly did not feel good about it", "Ted Bundy was a nasty guy. He needs to be punished"]
     ex = ["Rape is a serious crime and people have to take a careful note on it"]
     print(s.classify_single_predict(ex))
