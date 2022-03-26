@@ -14,6 +14,8 @@ def start():
 
     print (name, gender, age, profession, review, movies)
 
+    emotion = 
+
     return render_template('index.html')
 
 @app.route('/predict-emotion')
