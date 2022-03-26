@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request
+from model_maker import predict_emotion
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods = ['GET', 'POST'])
 def start():
 
     name = request.values.get("name")
@@ -14,19 +15,13 @@ def start():
 
     print (name, gender, age, profession, review, movies)
 
-    emotion = 
+    if request.method == 'POST':
+
+        emotion = predict_emotion(review)[0]
+
+        return render_template('index.html', emotion = emotion)
 
     return render_template('index.html')
-
-@app.route('/predict-emotion')
-def predict_emotion():
-
-    sentence = "I am hurt"
-
-    emotion = "sad"
-
-    pass
-
 
 @app.route('/ping')
 def ping():

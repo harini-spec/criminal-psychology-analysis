@@ -61,7 +61,7 @@ class MLSingleton:
         print('Training fresh model and dumping pickle')
 
         df = pd.read_csv(CSV_FILE_PATH)
-        df = df[df.Emotion != "joy"]
+        # df = df[df.Emotion != "joy"]
         df['Clean_Text'] = df['Text'].apply(nfx.remove_userhandles)
         df['Clean_Text'] = df['Clean_Text'].apply(nfx.remove_stopwords)
 
@@ -101,18 +101,27 @@ class MLSingleton:
         return predicted_value
 
 
-def predict_emotion():
+def predict_emotion(review):
+
+    listObj = [review]
 
     MLSingletonObj = MLSingleton.getInstance()
+    emotion = MLSingletonObj.classify_single_predict(listObj)
+
+    # print(emotion)
+
+    return emotion
 
 def startpy():
+
+    predict_emotion('I loved this movie')
     
-    s = MLSingleton.getInstance()
-    # train the model
-    # s.train_model(force=True)
-    ex = ["Rape is a serious crime and people have to take a careful note on it", "Movie contains lots of gore scenes.", "He need justice because it is completely unfair to him", "Movie contains lots of gore scenes. I particularly did not feel good about it", "Ted Bundy was a nasty guy. He needs to be punished"]
-    # ex = ["Rape is a serious crime and people have to take a careful note on it"]
-    print(s.classify_single_predict(ex))
+    # s = MLSingleton.getInstance()
+    # # train the model
+    # # s.train_model(force=True)
+    # ex = ["Rape is a serious crime and people have to take a careful note on it", "Movie contains lots of gore scenes.", "He need justice because it is completely unfair to him", "Movie contains lots of gore scenes. I particularly did not feel good about it", "Ted Bundy was a nasty guy. He needs to be punished"]
+    # # ex = ["Rape is a serious crime and people have to take a careful note on it"]
+    # print(s.classify_single_predict(ex))
 
 
 if __name__ == "__main__":
