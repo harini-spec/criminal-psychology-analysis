@@ -16,6 +16,16 @@ def start():
 
     return render_template('index.html')
 
+@app.route('/predict-emotion')
+def predict_emotion():
+
+    sentence = "I am hurt"
+
+    emotion = "sad"
+
+    pass
+
+
 @app.route('/ping')
 def ping():
 
