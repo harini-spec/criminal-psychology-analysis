@@ -61,7 +61,7 @@ class MLSingleton:
         print('Training fresh model and dumping pickle')
 
         df = pd.read_csv(CSV_FILE_PATH)
-        # df = df[df.Emotion != "joy"]
+        df = df[df.Emotion != "joy"]
         df['Clean_Text'] = df['Text'].apply(nfx.remove_userhandles)
         df['Clean_Text'] = df['Clean_Text'].apply(nfx.remove_stopwords)
 
