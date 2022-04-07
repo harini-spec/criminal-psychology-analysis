@@ -511,11 +511,11 @@
 
 
     <!-- FORM  -->
-    <form action="/project" method="POST" enctype="multipart/form-data" class="my-form">
+    <form action="/" method="POST" enctype="multipart/form-data" class="my-form">
         <div class="container">
             <ul>
                 <li>
-                    <select>
+                    <select id="genre" name="genre">
                       <option selected disabled>Choose a Scene</option>
                       <option>Gory</option>
                       <option>Romance</option>
@@ -523,39 +523,39 @@
                       <option>Fight</option>
                       <option>Other</option>      
                     </select>
-                  </li>
-                  <li>
-                    <select>
-                      <option selected disabled>Gender</option>
-                      <option>Female</option>
-                      <option>Male</option>
-                      <option>Trans</option>
-                      <option>Pansexual</option>
-                      <option>Other</option>      
-                    </select>
-                  </li>
+                </li>
+                <li>
+                    <select id="gender" name="gender">
+                        <option selected disabled>Gender</option>
+                        <option>Female</option>
+                        <option>Male</option>
+                        <option>Trans</option>
+                        <option>Pansexual</option>
+                        <option>Other</option>
+                        </select>
+                </li>
 
                 <li>
                     <div class="grid grid-2">
-                
+
                         <input type="text" placeholder="Name" name="name" required label for="name">
 
                         <input type="text" placeholder="Age" name='age' label for="age" required>
-                       
-                        <input type="text" placeholder="Profession" name="name" required label for="name">
+
+                        <input type="text" placeholder="Profession" name="profession" required label for="profession">
 
                         <input type="text" placeholder="Marital Status" name="status" required label for="status">
 
-                     
+
 
                     </div>
                 </li>
-             
+
 
                 <li>
-                    <label for="project_description"></label>
+                    <label for="review"></label>
 
-                    <textarea name="project_description" placeholder="Review:"></textarea>
+                    <textarea name="review" placeholder="Review:"></textarea>
                 </li>
 
                 <li>
@@ -565,15 +565,13 @@
                 <li>
                     <input type="submit" value="Submit" style="width:150px; margin-left: 310px;margin-right: 30px" />
                 </li>
-    
+
             </ul>
         </div>
     </form>
 
 
     <script>
-
-
         // FORM
 
         const checkbox = document.querySelector('.my-form input[type="checkbox"]');

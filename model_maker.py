@@ -106,6 +106,8 @@ def predict_emotion(review):
     listObj = [review]
 
     MLSingletonObj = MLSingleton.getInstance()
+    # MLSingletonObj.train_model(force=True)
+
     emotion = MLSingletonObj.classify_single_predict(listObj)
 
     # print(emotion)
@@ -114,7 +116,8 @@ def predict_emotion(review):
 
 def startpy():
 
-    predict_emotion('I loved this movie')
+    print (predict_emotion('I loved this movie'))
+    
     
     # s = MLSingleton.getInstance()
     # # train the model

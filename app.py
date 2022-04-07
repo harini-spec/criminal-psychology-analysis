@@ -15,28 +15,36 @@ database = client[DB_NAME]
 @app.route('/', methods = ['GET', 'POST'])
 def start():
 
-    name = request.values.get("name")
-    gender = request.values.get("gender")
-    age = request.values.get("age")
-    profession = request.values.get("profession")
-    review = request.values.get("review")
-    movies = request.form.get("movies")
-
-    print (name, gender, age, profession, review, movies)
-
     if request.method == 'POST':
 
-        emotion = predict_emotion(review)[0]
+        name = request.values.get("name")
+        age = request.values.get("age")
+        profession = request.values.get("profession")
+        review = request.values.get("review")
+        gender = request.form.get("gender")
+        genre = request.form.get("genre")
+        status = request.form.get("status")
 
-        review_dict = {
-            'review'    : review,
-            'emotion'   : emotion
+        emotion = predict_emotion(review)[0]
+        # print(emotion)
+
+        result_dict = {
+            'name'          : name,
+            'age'           : age,
+            'profession'    : profession,
+            'review'        : review,
+            'gender'        : gender,
+            'genre'         : genre,
+            'marital_status': status,
+            'emotion'       : emotion
         }
+
+        print(result_dict)
 
         collection_name = 'review_details'
 
         new_collection = database[collection_name]
-        x = new_collection.insert_one(review_dict)
+        x = new_collection.insert_one(result_dict)
         print(x)
 
         return render_template('index.html', emotion = emotion)
