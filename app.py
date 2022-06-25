@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from flask import Flask, render_template, request
 from model_maker import predict_emotion
 from pymongo import MongoClient
@@ -13,10 +14,33 @@ DB_NAME = 'movie_reviews_emotion'
 database = client[DB_NAME]
 
 @app.route('/', methods = ['GET', 'POST'])
-def start():
+def home():
+
+
+    return render_template('home.html')
+
+@app.route('/movie-list', methods = ['GET', 'POST'])
+def movie_list():
+
+
+    return render_template('movie_list.html')
+
+@app.route('/review', methods = ['GET', 'POST'])
+def review():
+
+    movie = request.values.get('movie-choice')
+    print(movie)
+
+    return render_template('index.html', movie = movie)
+
+
+
+@app.route('/submit', methods = ['GET', 'POST'])
+def submit():
 
     if request.method == 'POST':
 
+        movie = request.values.get('movie_name')
         name = request.values.get("name")
         age = request.values.get("age")
         profession = request.values.get("profession")
@@ -29,6 +53,7 @@ def start():
         # print(emotion)
 
         result_dict = {
+            'movie'         : movie,
             'name'          : name,
             'age'           : age,
             'profession'    : profession,
@@ -62,10 +87,3 @@ def ping():
 
 if __name__== "__main__":
     app.run(host="0.0.0.0", debug = True, port = 5003)
-
-'''
-
-choose a movie
-
-
-'''

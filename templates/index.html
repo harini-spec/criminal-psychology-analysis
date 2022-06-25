@@ -511,7 +511,7 @@
 
 
     <!-- FORM  -->
-    <form action="/" method="POST" enctype="multipart/form-data" class="my-form">
+    <form action="/submit" method="POST" enctype="multipart/form-data" class="my-form">
         <div class="container">
             <ul>
                 <li>
@@ -546,6 +546,8 @@
 
                         <input type="text" placeholder="Marital Status" name="status" required label for="status">
 
+                        <input type="text" name="movie_name" style="visibility: hidden;" value='{{movie}}'>
+
 
 
                     </div>
@@ -574,7 +576,7 @@
     <script>
         // FORM
 
-        const checkbox = document.querySelector('.my-form input[type="checkbox"]');
+        const checkbox = document.querySelector(' .my-form input[type="checkbox" ] ');
         const btns = document.querySelectorAll(".my-form button");
 
         checkbox.addEventListener("change", function() {
@@ -587,11 +589,11 @@
         // WAVES 
 
         let root = document.documentElement;
-        const section1 = document.querySelector('.header')
+        const section1 = document.querySelector('.header ')
 
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll ', () => {
             const y = 1 + (window.scrollY || window.pageYOffset);
-            root.style.setProperty('--gradient-percent', y * 4 + "px");
+            root.style.setProperty('--gradient-percent ', y * 4 + "px");
             console.log(y)
         })
     </script>
