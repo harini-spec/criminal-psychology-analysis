@@ -7,7 +7,6 @@ import os.path
 from sklearn import preprocessing
 from sklearn.model_selection import cross_val_score,cross_val_predict
 from sklearn.linear_model import LogisticRegression
-import seaborn as sns
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import MultinomialNB

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 from flask import Flask, render_template, request
 from model_maker import predict_emotion
 from pymongo import MongoClient
