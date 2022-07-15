@@ -19,3 +19,11 @@
 2. ML Libraries
 3. HTML - CSS - JS
 4. MongoDB
+
+## To run Docker 
+
+```
+sudo docker build -t myapp . 
+sudo docker image ls 
+sudo docker run -p 80:5000 myapp
+```
